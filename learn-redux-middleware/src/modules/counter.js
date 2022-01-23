@@ -8,7 +8,13 @@ export const decrease = () => ({ type: DECREASE });
 
 // 초깃값 (상태가 객체가 아니라 그냥 숫자여도 상관 없습니다.)
 const initialState = 0;
-
+export const increaseAsync = () => dispatch => {
+    setTimeout(() => dispatch(increase()), 1000);
+  };
+  export const decreaseAsync = () => dispatch => {
+    setTimeout(() => dispatch(decrease()), 1000);
+  };
+  
 export default function counter(state = initialState, action) {
   switch (action.type) {
     case INCREASE:
